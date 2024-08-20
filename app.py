@@ -5,8 +5,11 @@ from pinecone_text.sparse import BM25Encoder
 from langchain_huggingface import HuggingFaceEmbeddings
 import os
 
+from dotenv import load_dotenv
+load_dotenv()
+
 # Initialize the Pinecone client
-api_key = "d1989089-32c7-4fd0-865a-3ad02e9dbb6f"
+api_key = os.getenv("PINECONE_API_KEY")
 index_name = "hybrid-search-langchain-pinecone"
 pc = Pinecone(api_key=api_key)
 
@@ -22,8 +25,6 @@ if index_name not in pc.list_indexes().names():
 index = pc.Index(index_name)
 
 # Load environment variables
-from dotenv import load_dotenv
-load_dotenv()
 
 os.environ["HF_TOKEN"] = os.getenv("HF_TOKEN")
 
