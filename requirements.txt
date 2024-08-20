@@ -30,3 +30,7 @@ unstructured
 pytube
 numexpr
 huggingface_hub
+pinecone-client
+pinecone-text
+pinecone-notebooks
+nltk
