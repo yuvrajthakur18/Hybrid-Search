@@ -8,6 +8,9 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
+import nltk 
+nltk.download("punkt_tab")
+
 # Initialize the Pinecone client
 api_key = os.getenv("PINECONE_API_KEY")
 index_name = "hybrid-search-langchain-pinecone"
